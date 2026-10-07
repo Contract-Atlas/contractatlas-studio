@@ -64,7 +64,7 @@ pnpm run build   # also checks the generated validator is current
 
 ## Status
 
-- Engineering: complete for v0.1; 27 tests; verified in a real browser at desktop and 375 px widths.
+- Engineering: complete for v0.1; 27 tests; verified in a real browser at desktop and 375 px widths (a CSP bug and, with a corrected measurement, a narrow-screen overflow were found and fixed there).
 - Not done: hosted deployment (Vercel CLI not installed in the build environment and public publishing was not authorized), live "check" from the page (deliberately out of scope: it would require the host to accept arbitrary RPC URLs).
 - No maintainer or integrator has reviewed this page yet.
 
