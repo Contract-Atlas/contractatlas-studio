@@ -115,3 +115,11 @@ footer.site { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 
   .facts dt { margin-top: .5rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Narrow-screen containment: nothing may force the layout wider than the viewport. */
+.controls > *, main > *, .report > *, .card > *, .diff > * { min-width: 0; }
+.facts { grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); }
+select, input, textarea { max-width: 100%; min-width: 0; }
+@media (max-width: 36rem) { .facts { grid-template-columns: minmax(0, 1fr); } }
+
+code { overflow-wrap: anywhere; word-break: break-all; }
