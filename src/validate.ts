@@ -47,5 +47,10 @@ export function validateReport(raw: unknown): LoadResult {
   if (JSON.stringify(counted) !== JSON.stringify({ match: report.summary.match, drift: report.summary.drift, incomplete: report.summary.incomplete, unavailable: report.summary.unavailable })) {
     return { ok: false, error: "Report summary counts do not agree with its contract statuses." };
   }
+  const rank = { match: 0, incomplete: 1, unavailable: 2, drift: 3 } as const;
+  const worst = report.contracts.reduce<keyof typeof rank>((w, c) => (rank[c.status] > rank[w] ? c.status : w), "match");
+  if (report.overall !== worst) {
+    return { ok: false, error: `Inconsistent report: its overall status is "${report.overall}" but its contract statuses give "${worst}".` };
+  }
   return { ok: true, report, notes };
 }

@@ -56,3 +56,17 @@ describe("report validation", () => {
     expect(parseReportText(" ".repeat(5_000_001))).toMatchObject({ ok: false });
   });
 });
+
+describe("overall status consistency", () => {
+  it("rejects a drifted report relabelled as match, and a match report relabelled as drift", () => {
+    const drift = JSON.parse(readFileSync("vendor/contractatlas-core/reports/02-after-upgrade.json", "utf8"));
+    expect(drift.overall).toBe("drift");
+    drift.overall = "match";
+    const r = validateReport(drift);
+    expect(r).toMatchObject({ ok: false });
+    if (!r.ok) expect(r.error).toMatch(/overall status is "match"/);
+    const before = JSON.parse(readFileSync("vendor/contractatlas-core/reports/01-before-upgrade.json", "utf8"));
+    before.overall = "match";
+    expect(validateReport(before).ok).toBe(false);
+  });
+});
