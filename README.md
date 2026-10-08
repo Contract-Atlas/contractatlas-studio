@@ -4,7 +4,7 @@ The public report page for [ContractAtlas](https://github.com/Anasabubakar/contr
 
 It reads a report produced by `contractatlas-core`, shows each contract as **match**, **drift**, **incomplete** or **unavailable** with the evidence behind it, and can compare two reports to show what changed between them (for example, a contract upgrade). It never computes a verdict itself: every status, finding and provenance field on the page comes from the report JSON, and the same report renders in the CLI.
 
-Hosted demo: not deployed yet (deployment is pending, see [BLOCKERS](#status)). Run it locally below.
+Hosted demo: https://contractatlas-studio-anasamasama.vercel.app
 
 ## Run
 
