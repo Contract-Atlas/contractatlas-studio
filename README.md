@@ -1,8 +1,13 @@
+<p align="center"><img src="docs/assets/banner.svg" alt="contractatlas-studio" width="100%"></p>
+
 # contractatlas-studio
 
-**Documentation:** https://stellar-developer-tools.gitbook.io/contractatlas-studio/
+[![CI](https://github.com/Contract-Atlas/contractatlas-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/Contract-Atlas/contractatlas-studio/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Release](https://img.shields.io/github/v/release/Contract-Atlas/contractatlas-studio)](https://github.com/Contract-Atlas/contractatlas-studio/releases)
 
-The public report page for [ContractAtlas](https://github.com/Anasabubakar/contractatlas-core) reports: does the code live on chain still match the audit scope a project published?
+[Documentation](https://stellar-developer-tools.gitbook.io/contractatlas-studio/) · [Live demo](https://contractatlas-studio-anasamasama.vercel.app) · [Core repository](https://github.com/Contract-Atlas/contractatlas-core) · [Issues](https://github.com/Contract-Atlas/contractatlas-studio/issues) · [Discussions](https://github.com/Contract-Atlas/contractatlas-studio/discussions)
+
+
+The public report page for [ContractAtlas](https://github.com/Contract-Atlas/contractatlas-core) reports: does the code live on chain still match the audit scope a project published?
 
 It reads a report produced by `contractatlas-core`, shows each contract as **match**, **drift**, **incomplete** or **unavailable** with the evidence behind it, and can compare two reports to show what changed between them (for example, a contract upgrade). It never computes a verdict itself: every status, finding and provenance field on the page comes from the report JSON, and the same report renders in the CLI.
 
@@ -13,7 +18,7 @@ Hosted demo: https://contractatlas-studio-anasamasama.vercel.app
 Node 22 or newer and pnpm.
 
 ```bash
-git clone https://github.com/Anasabubakar/contractatlas-studio.git
+git clone https://github.com/Contract-Atlas/contractatlas-studio.git
 cd contractatlas-studio
 pnpm install --frozen-lockfile
 pnpm dev            # or: pnpm build && pnpm preview
@@ -72,8 +77,42 @@ pnpm run build   # also checks the generated validator is current
 
 MIT licensed. A match is a hash comparison, not a security rating, audit or endorsement.
 
+## Repository layout
+
+- `docs/`: decision records (ADRs), evidence and assets
+- `gitbook/`: source of the GitBook documentation
+- `scripts/`: build, generation and recording scripts
+- `src/`: source
+- `test/`: tests
+- `vendor/`: pinned artifacts from the paired core repository
+
+## Documentation
+
+The full documentation is at https://stellar-developer-tools.gitbook.io/contractatlas-studio/. It is built from the `gitbook/` folder of this repository and synced from `main`, so a fix to a page is a pull request here.
+
+## Contributing
+
+Open issues are scoped so one person can finish one in a single cycle, and each lists acceptance criteria. Read [CONTRIBUTING.md](CONTRIBUTING.md), pick an issue from the [issue list](https://github.com/Contract-Atlas/contractatlas-studio/issues), and say you are taking it before you start. Security reports go through [SECURITY.md](SECURITY.md), not public issues.
+
+## Maintainers
+
+| Maintainer | Role | GitHub |
+|---|---|---|
+| Anas Abubakar | Lead maintainer | [@Anasabubakar](https://github.com/Anasabubakar) |
+| Abdulbasit Fazazi | Co-maintainer | [@fazaziishola-coder](https://github.com/fazaziishola-coder) |
+
+## Community
+
+Questions and design discussion go in [GitHub Discussions](https://github.com/Contract-Atlas/contractatlas-studio/discussions). Bugs and scoped work go in [Issues](https://github.com/Contract-Atlas/contractatlas-studio/issues).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
+
 ## Contributors
 
-<a href="https://github.com/Anasabubakar/contractatlas-studio/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Anasabubakar/contractatlas-studio" alt="Contributors to contractatlas-studio" />
+Thanks to all the contributors who have made this project possible.
+
+<a href="https://github.com/Contract-Atlas/contractatlas-studio/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Contract-Atlas/contractatlas-studio" alt="Contributors to contractatlas-studio" />
 </a>
