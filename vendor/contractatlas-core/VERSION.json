@@ -1,7 +1,10 @@
 {
-  "package": "@anasabubakar/contractatlas-core",
-  "version": "0.1.0",
-  "commit": "5da72333e1dcbb3532cddd7c4c04feb41312e73f",
+  "package": "@anas.abubakar/contractatlas-core",
+  "version": "0.1.1",
+  "commit": "a6d5bc6b88db159d8efa5e57d771102aae2e90ac",
   "reportVersion": "1",
+  "sampleReportsRecordedWith": [
+    "0.1.0"
+  ],
   "vendoredFor": "contractatlas-studio"
 }

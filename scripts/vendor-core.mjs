@@ -18,8 +18,10 @@ for (const f of ["01-before-upgrade.json", "02-after-upgrade.json"]) {
 copyFileSync(join(coreDir, "fixtures/testnet/reports/01-before-upgrade.txt"), join(out, "reports/01-before-upgrade.txt"));
 copyFileSync(join(coreDir, "fixtures/testnet/reports/02-after-upgrade.txt"), join(out, "reports/02-after-upgrade.txt"));
 
+// The sample reports are real recordings; report 01 cannot be reproduced (the fixture is permanently upgraded), so they keep the tool version that recorded them.
+const recordedWith = [...new Set(["01-before-upgrade.json", "02-after-upgrade.json"].map((f) => JSON.parse(readFileSync(join(out, "reports", f), "utf8")).tool.version))];
 writeFileSync(
   join(out, "VERSION.json"),
-  JSON.stringify({ package: pkg.name, version: pkg.version, commit, reportVersion: "1", vendoredFor: "contractatlas-studio" }, null, 2) + "\n",
+  JSON.stringify({ package: pkg.name, version: pkg.version, commit, reportVersion: "1", sampleReportsRecordedWith: recordedWith, vendoredFor: "contractatlas-studio" }, null, 2) + "\n",
 );
 console.log(`vendored ${pkg.name}@${pkg.version} (${commit.slice(0, 12)})`);
