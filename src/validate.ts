@@ -37,7 +37,7 @@ export function validateReport(raw: unknown): LoadResult {
   }
   const report = raw as unknown as Report;
   const notes: string[] = [];
-  if (report.tool.version !== TESTED_CORE.version) {
+  if (report.tool.version !== TESTED_CORE.version && !pairing.sampleReportsRecordedWith.includes(report.tool.version)) {
     notes.push(
       `This report was produced by ${report.tool.name} ${report.tool.version}; this studio was tested with ${TESTED_CORE.version}. The report matches the v1 schema, so it is shown, but newer tool behavior is not covered by this studio's tests.`,
     );

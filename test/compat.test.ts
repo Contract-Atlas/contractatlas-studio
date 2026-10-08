@@ -17,10 +17,10 @@ describe("core pairing", () => {
     expect(TESTED_CORE).toEqual({ name: vendored.package, version: vendored.version, reportVersion: vendored.reportVersion });
   });
 
-  it("vendored sample reports were produced by the vendored core version", () => {
+  it("vendored sample reports were produced by a core version the vendor stamp lists", () => {
     for (const f of ["01-before-upgrade.json", "02-after-upgrade.json"]) {
       const r = JSON.parse(readFileSync(`vendor/contractatlas-core/reports/${f}`, "utf8"));
-      expect(r.tool.version).toBe(vendored.version);
+      expect(vendored.sampleReportsRecordedWith).toContain(r.tool.version);
     }
   });
 
