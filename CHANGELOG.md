@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.1.1
-- Reports whose overall status contradicts their contract statuses are now rejected. Pairing unchanged (still tested with the 0.1.0 core snapshot it vendors).
+- Reports whose overall status contradicts their contract statuses are now rejected. Re-paired with the published 0.1.1 release of its core (`compat.json` and the vendor stamp record the version and commit). Recorded real-run samples keep the version that recorded them.
 
 ## 0.1.0 (unreleased)
 - Report viewer for ContractAtlas report v1 with provenance, freshness and limitation sections.

@@ -2,8 +2,8 @@
   "studio": "0.1.1",
   "pairs": [
     {
-      "core": "@anasabubakar/contractatlas-core",
-      "version": "0.1.0",
+      "core": "@anas.abubakar/contractatlas-core",
+      "version": "0.1.1",
       "reportVersion": "1",
       "status": "tested"
     }
