@@ -69,3 +69,9 @@ pnpm run build   # also checks the generated validator is current
 - No maintainer or integrator has reviewed this page yet.
 
 MIT licensed. A match is a hash comparison, not a security rating, audit or endorsement.
+
+## Contributors
+
+<a href="https://github.com/Anasabubakar/contractatlas-studio/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Anasabubakar/contractatlas-studio" alt="Contributors to contractatlas-studio" />
+</a>
