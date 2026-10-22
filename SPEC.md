@@ -9,7 +9,7 @@ Someone reading a protocol's deployment disclosure (an integrator, a reviewer, a
 - Provenance, freshness (stale after 24 h) and limitation statements as given by the report.
 
 ## Non-goals
-- No RPC access, no live checking, no manifest authoring, no verdict computation, no score.
+- The report viewer (`/app`) has no RPC access, no manifest authoring, no verdict computation, no score. Since 0.2.0 the separate `/check` page makes an opt-in testnet read of one fixed host (`https://soroban-testnet.stellar.org`); it never reads mainnet or arbitrary URLs.
 - No upload or storage of reports; no accounts.
 
 ## Data model

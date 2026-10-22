@@ -13,6 +13,8 @@ It reads a report produced by `contractatlas-core`, shows each contract as **mat
 
 Hosted demo: https://contractatlas-studio-anasamasama.vercel.app
 
+Site routes: `/` landing, `/app` report viewer, `/check` live testnet check, `/docs`, `/about`, `/privacy`, `/terms`.
+
 ## Run
 
 Node 22 or newer and pnpm.
@@ -30,7 +32,9 @@ Open the page, pick a **recorded testnet run**, or load your own report:
 contractatlas check manifest.json --rpc https://soroban-testnet.stellar.org --out report.json
 ```
 
-then use "Your report file" or paste the JSON. Files are read in your browser and never uploaded; the page makes no network requests.
+then use "Your report file" or paste the JSON on `/app`. Files are read in your browser and never uploaded. The viewer makes no network requests.
+
+**Live check (`/check`).** After you press "Read live code", the page sends a Soroban RPC `getLedgerEntries` request to `https://soroban-testnet.stellar.org` (testnet only, no other host) for each contract ID you enter, and shows the live WASM hash and latest ledger. With an expected hash it shows match or drift. A failed or empty read is shown as unavailable, never as drift. Mainnet checks use the CLI.
 
 ## What you see
 
@@ -48,14 +52,14 @@ Evidence (real browser, 2026-10-07): [comparison on desktop](docs/evidence/compa
 
 - Report content is untrusted. Everything is inserted as text nodes; audit links are clickable only if they are `https:`; no `innerHTML`.
 - Strict Content-Security-Policy (`script-src 'self'`, no `unsafe-eval`). The report validator is precompiled from the schema at build time (`pnpm gen`), because runtime schema compilation would need `unsafe-eval`; this was found by testing in a real browser, not in jsdom.
-- No RPC access, no URL fetching, no server component: a visitor cannot make the host reach any address.
+- The only network request is the opt-in `/check` read, to the single fixed host `https://soroban-testnet.stellar.org` (CSP `connect-src` lists exactly that host). No fetching of user-supplied addresses, no server component.
 - Unknown report versions are refused. A report from a different core version that still matches the v1 schema is shown with a note.
 
 ## Version pairing with the core
 
 | studio | contractatlas-core | report version | status |
 |---|---|---|---|
-| 0.1.1 | 0.1.1 (commit in `vendor/contractatlas-core/VERSION.json`) | 1 | tested |
+| 0.2.0 | 0.1.1 (commit in `vendor/contractatlas-core/VERSION.json`) | 1 | tested |
 
 The report JSON Schema and sample reports are vendored (`pnpm vendor ../contractatlas-core` refreshes them and the stamp); `compat.json`, the tests and CI check the pairing. The repo has no dependency on a sibling path and builds from a clean clone.
 
@@ -71,8 +75,8 @@ pnpm run build   # also checks the generated validator is current
 
 ## Status
 
-- Engineering: complete for v0.1; 27 tests; verified in a real browser at desktop and 375 px widths (a CSP bug and, with a corrected measurement, a narrow-screen overflow were found and fixed there).
-- Not done: live "check" from the page (deliberately out of scope: it would require the host to accept arbitrary RPC URLs).
+- Engineering: complete for v0.1; 48 tests; verified in a real browser at desktop and 375 px widths (a CSP bug and, with a corrected measurement, a narrow-screen overflow were found and fixed there).
+- Live check is limited to the fixed testnet host; there is no arbitrary RPC URL input and no mainnet check in the page.
 - No maintainer or integrator has reviewed this page yet.
 
 MIT licensed. A match is a hash comparison, not a security rating, audit or endorsement.
