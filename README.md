@@ -120,3 +120,7 @@ Thanks to all the contributors who have made this project possible.
 <a href="https://github.com/Contract-Atlas/contractatlas-studio/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Contract-Atlas/contractatlas-studio" alt="Contributors to contractatlas-studio" />
 </a>
+
+## Public deployment examples
+
+`/registry` shows official-source manifests for Blend v2.1, Soroswap and Reflector, with downloadable recorded checker attempts. The current attempts are `unavailable` because the recording environment could not reach RPC; no live code hash or audit mapping was established. This page makes no network requests. `public/registry/PROVENANCE.json` records the source checkout commit and SHA-256 of each copied registry file. Update these files from the core registry together and review their source links before replacing the snapshot.

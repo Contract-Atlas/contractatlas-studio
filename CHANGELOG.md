@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Add `/registry` with eight official-source contract addresses, downloadable manifests and actual unavailable checker attempts. Validate every bundled report before displaying it; no live hash or audit mapping is claimed.
+- Document the source GitHub Action and the distinction from `sdkt verify`.
+
 ## 0.2.0
 - Product site: landing page, `/app` (the existing report viewer), `/docs`, `/about`, `/privacy`, `/terms`, and a 404 page, with a History API router and a shared header and footer.
 - `/check`: opt-in live read of Stellar testnet contract instances with Soroban RPC `getLedgerEntries` against `https://soroban-testnet.stellar.org`. Shows the live WASM hash and latest ledger, and match or drift against an expected hash. Failed or empty reads are unavailable, never drift. The Stellar XDR code loads only when the button is pressed.
