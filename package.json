@@ -1,6 +1,6 @@
 {
   "name": "contractatlas-studio",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "description": "Public deployment and audit-scope report page for ContractAtlas reports.",
   "license": "MIT",
