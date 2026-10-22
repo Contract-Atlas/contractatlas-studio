@@ -1,9 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 async function boot() {
-  document.body.innerHTML = '<main id="app"></main>';
+  document.body.replaceChildren();
   vi.resetModules();
-  await import("../src/main.ts");
+  const { renderApp } = await import("../src/pages/app.ts");
+  document.body.append(renderApp());
 }
 
 describe("report viewer app", () => {
