@@ -4,7 +4,8 @@
   --ink: #1d2433;
   --muted: #5b6475;
   --line: #d9d3c4;
-  --accent: #1f3a5f;
+  --accent: #0f4c5c;
+  --brand: #1b7f8c;
   --match: #17693f;
   --match-bg: #e3f2e9;
   --drift: #a3231b;
@@ -23,7 +24,8 @@
     --ink: #e8eaf0;
     --muted: #a2abbb;
     --line: #333c4b;
-    --accent: #9db8e0;
+    --accent: #7fd0dc;
+    --brand: #1b7f8c;
     --match: #7fd6a3;
     --match-bg: #16301f;
     --drift: #ff9d94;
@@ -43,9 +45,6 @@ body {
   color: var(--ink);
   font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-main { max-width: 56rem; margin: 0 auto; padding: 1rem 1rem 3rem; }
-.skip { position: absolute; left: -999px; }
-.skip:focus { left: 1rem; top: 1rem; background: var(--surface); padding: .5rem 1rem; z-index: 10; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 h1 { font-size: 1.6rem; margin: 1rem 0 .25rem; letter-spacing: -.01em; }
 h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
@@ -109,7 +108,7 @@ button:hover { filter: brightness(1.1); }
 table { border-collapse: collapse; width: 100%; background: var(--surface); }
 th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 tr[data-changed="yes"] { background: color-mix(in srgb, var(--incomplete-bg) 60%, transparent); }
-footer.site { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+.pairing { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 1rem; }
 @media (max-width: 36rem) {
   .facts { grid-template-columns: 1fr; }
   .facts dt { margin-top: .5rem; }
@@ -117,7 +116,7 @@ footer.site { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
 /* Narrow-screen containment: nothing may force the layout wider than the viewport. */
-.controls > *, main > *, .report > *, .card > *, .diff > * { min-width: 0; }
+.controls > *, .page > *, .report > *, .card > *, .diff > * { min-width: 0; }
 .facts { grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); }
 select, input, textarea { max-width: 100%; min-width: 0; }
 @media (max-width: 36rem) { .facts { grid-template-columns: minmax(0, 1fr); } }
