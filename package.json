@@ -21,6 +21,7 @@
     "check:gen": "node scripts/gen-validator.mjs --check"
   },
   "dependencies": {
+    "@stellar/stellar-sdk": "17.2.1",
     "ajv": "8.20.0"
   },
   "devDependencies": {
