@@ -6,6 +6,7 @@ const NAV: Array<{ href: string; label: string }> = [
   { href: "/", label: "Product" },
   { href: "/app", label: "App" },
   { href: "/check", label: "Live check" },
+  { href: "/registry", label: "Registry" },
   { href: "/docs", label: "Docs" },
   { href: "/about", label: "About" },
 ];
@@ -52,7 +53,7 @@ export function buildShell(root: HTMLElement): Shell {
     h(
       "div",
       { class: "foot-grid" },
-      col("Product", [link("/app", "App"), link("/check", "Live check"), link("/docs", "Docs"), link("/about", "About")]),
+      col("Product", [link("/app", "App"), link("/check", "Live check"), link("/registry", "Registry"), link("/docs", "Docs"), link("/about", "About")]),
       col("Open source", [
         ext(LINKS.core, "Core repository"),
         ext(LINKS.studio, "App repository"),

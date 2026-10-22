@@ -15,6 +15,7 @@ describe("router", () => {
     ["/", "ContractAtlas", "ContractAtlas"],
     ["/app", "Report viewer", "Report viewer · ContractAtlas"],
     ["/check", "Live check (testnet)", "Live check · ContractAtlas"],
+    ["/registry", "Public deployment registry", "Deployment registry · ContractAtlas"],
     ["/docs", "Getting started", "Docs · ContractAtlas"],
     ["/about", "About ContractAtlas", "About · ContractAtlas"],
     ["/privacy", "Privacy policy", "Privacy · ContractAtlas"],

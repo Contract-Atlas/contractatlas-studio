@@ -64,6 +64,8 @@ h1:focus { outline: none; }
 .sample-row { margin: .6rem 0; }
 .stack li { margin: .4rem 0; }
 
+.registry-id { overflow-wrap: anywhere; word-break: break-word; }
+
 /* code */
 .code { position: relative; margin: .75rem 0; max-width: 46rem; }
 .code pre { margin: 0; background: #0e2a33; color: #e6f4f7; border-radius: 8px; padding: .9rem 4.5rem .9rem 1rem; overflow-x: auto; font-size: .85rem; }

@@ -1,0 +1,17 @@
+{
+  "source": "https://github.com/Contract-Atlas/contractatlas-core",
+  "commit": "3348488ba31ef84717873b7535ae89c5df303055",
+  "files": {
+    "README.md": "da5f09f845ba36eba248171f6d61fda61db5cb9c88a7550a70855baaf452a832",
+    "index.json": "26bc856c477fa4fb614d811af08e09e380156509bc165b3142cfb2bce92862bf",
+    "manifests/blend-v2-1.json": "faa1cce96b2f0f6e81ffdb922b614362bb440621046115a5a934cc9f0419bb86",
+    "manifests/reflector.json": "12b2061df038c4881661a9a846299de4335b54757558c5ff3f707cbe5ac91d7d",
+    "manifests/soroswap.json": "0cbe4355419ab966ce3518e2a44637ce34c56113957ac26e069f50ebb8bdc4f2",
+    "reports/blend-v2-1.json": "8981b92e27784480cc901520c8713cd3efb4c4f23fe57c899d228c1aa049c458",
+    "reports/blend-v2-1.svg": "20e4299c9d894f7a00133660651983caaaa1e3b5683cd62dcf8d5257d8f77fd7",
+    "reports/reflector.json": "3789b124dd99beebfccb254e67fbffa968bb43ac85656fc5cae873c9e3e902b7",
+    "reports/reflector.svg": "20e4299c9d894f7a00133660651983caaaa1e3b5683cd62dcf8d5257d8f77fd7",
+    "reports/soroswap.json": "7d77b98423dac323d82901b7bbd0efcaadf544992488786ee028efcbe69bb722",
+    "reports/soroswap.svg": "20e4299c9d894f7a00133660651983caaaa1e3b5683cd62dcf8d5257d8f77fd7"
+  }
+}
