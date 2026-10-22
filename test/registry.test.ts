@@ -4,6 +4,15 @@ import { renderRegistry } from "../src/pages/registry.ts";
 import { validateReport } from "../src/validate.ts";
 
 describe("recorded deployment registry", () => {
+  it("keeps downloads outside the SPA rewrite while serving the registry page through it", () => {
+    const config = JSON.parse(readFileSync("vercel.json", "utf8"));
+    const rewrite = new RegExp(`^${config.rewrites[0].source}$`);
+    expect(rewrite.test("/registry")).toBe(true);
+    for (const path of ["/registry/index.json", "/registry/manifests/blend-v2-1.json", "/registry/reports/soroswap.json"]) {
+      expect(rewrite.test(path)).toBe(false);
+      expect(readFileSync(`public${path}`, "utf8").length).toBeGreaterThan(0);
+    }
+  });
   it("validates reports and binds each to the corresponding published manifest IDs", () => {
     const index = JSON.parse(readFileSync("public/registry/index.json", "utf8"));
     let contracts = 0;
