@@ -1,9 +1,7 @@
 import { Address, xdr } from "@stellar/stellar-sdk/base";
 
-/** The only host the live check contacts. */
-export const TESTNET_RPC = "https://soroban-testnet.stellar.org";
-export const TESTNET_HOST = "soroban-testnet.stellar.org";
-export const MAX_CONTRACTS = 10;
+import { TESTNET_RPC } from "./site.ts";
+
 export const REQUEST_TIMEOUT_MS = 15_000;
 
 export type LiveRead =

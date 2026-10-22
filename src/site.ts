@@ -41,3 +41,8 @@ export const LIMITS = [
   "A contract entry that is archived or never deployed is reported unavailable, not as proof of absence.",
   "A report is a point-in-time observation. It is not a security rating, an audit or an endorsement.",
 ] as const;
+
+/** The only host the live check contacts. */
+export const TESTNET_RPC = "https://soroban-testnet.stellar.org";
+export const TESTNET_HOST = "soroban-testnet.stellar.org";
+export const MAX_CONTRACTS = 10;

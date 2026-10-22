@@ -11,6 +11,8 @@ export interface RouterOptions {
   routes: Route[];
   notFound: Route;
   suffix: string;
+  /** Element whose subtree holds the links the router handles. */
+  linkRoot: HTMLElement;
   /** Called after every render with the matched path ("*" for the 404 page). */
   onRender?: (path: string, route: Route) => void;
 }
@@ -72,7 +74,7 @@ export function createRouter(opts: RouterOptions) {
     navigate(href);
   }
 
-  document.addEventListener("click", onClick);
+  opts.linkRoot.addEventListener("click", onClick);
   window.addEventListener("popstate", () => render(true));
-  return { render: () => render(false), navigate, dispose: () => document.removeEventListener("click", onClick) };
+  return { render: () => render(false), navigate, dispose: () => opts.linkRoot.removeEventListener("click", onClick) };
 }
