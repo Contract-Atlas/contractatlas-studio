@@ -30,7 +30,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|registry/|favicon|og-image|robots.txt|sitemap.xml).*)",
+      "source": "/((?!assets/|registry-data/|favicon|og-image|robots.txt|sitemap.xml).*)",
       "destination": "/index.html"
     }
   ]

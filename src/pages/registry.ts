@@ -1,7 +1,7 @@
-import index from "../../public/registry/index.json";
-import blend from "../../public/registry/reports/blend-v2-1.json";
-import soroswap from "../../public/registry/reports/soroswap.json";
-import reflector from "../../public/registry/reports/reflector.json";
+import index from "../../public/registry-data/index.json";
+import blend from "../../public/registry-data/reports/blend-v2-1.json";
+import soroswap from "../../public/registry-data/reports/soroswap.json";
+import reflector from "../../public/registry-data/reports/reflector.json";
 import { h } from "../dom.ts";
 import { validateReport } from "../validate.ts";
 import { ext, link } from "../ui.ts";
@@ -25,7 +25,7 @@ export function renderRegistry(): HTMLElement {
         h("ul", {}, ...report.contracts.map((contract) => h("li", {}, contract.name, ": ", h("code", { class: "registry-id" }, contract.id), ` — ${contract.status}`))),
         h("p", {}, "Official source: ", ...entry.sources.map((source) => ext(source, new URL(source).hostname))),
         p("Sources retrieved ", entry.retrievedOn, ". Published hashes, where provided, are declarations; they are not audit references."),
-        p(link(`/registry/${entry.manifest}`, "Manifest JSON", { download: `${entry.slug}.manifest.json` }), " · ", link(`/registry/${entry.report}`, "Recorded report JSON", { download: `${entry.slug}.report.json` })),
+        p(link(`/registry-data/${entry.manifest}`, "Manifest JSON", { download: `${entry.slug}.manifest.json` }), " · ", link(`/registry-data/${entry.report}`, "Recorded report JSON", { download: `${entry.slug}.report.json` })),
       );
     }),
     section("next", "Record another observation", p("Use the ", ext("https://github.com/Contract-Atlas/contractatlas-core/tree/main/registry", "core registry instructions"), " with an RPC endpoint you can reach. The CI Action fails on drift, incomplete evidence and unavailable reads by default. Download the report artifact, then load it in ", link("/app", "the report viewer"), ". No RPC request is made from this registry page.")),

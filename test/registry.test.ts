@@ -8,17 +8,17 @@ describe("recorded deployment registry", () => {
     const config = JSON.parse(readFileSync("vercel.json", "utf8"));
     const rewrite = new RegExp(`^${config.rewrites[0].source}$`);
     expect(rewrite.test("/registry")).toBe(true);
-    for (const path of ["/registry/index.json", "/registry/manifests/blend-v2-1.json", "/registry/reports/soroswap.json"]) {
+    for (const path of ["/registry-data/index.json", "/registry-data/manifests/blend-v2-1.json", "/registry-data/reports/soroswap.json"]) {
       expect(rewrite.test(path)).toBe(false);
       expect(readFileSync(`public${path}`, "utf8").length).toBeGreaterThan(0);
     }
   });
   it("validates reports and binds each to the corresponding published manifest IDs", () => {
-    const index = JSON.parse(readFileSync("public/registry/index.json", "utf8"));
+    const index = JSON.parse(readFileSync("public/registry-data/index.json", "utf8"));
     let contracts = 0;
     for (const entry of index.entries) {
-      const manifest = JSON.parse(readFileSync(`public/registry/${entry.manifest}`, "utf8"));
-      const raw = JSON.parse(readFileSync(`public/registry/${entry.report}`, "utf8"));
+      const manifest = JSON.parse(readFileSync(`public/registry-data/${entry.manifest}`, "utf8"));
+      const raw = JSON.parse(readFileSync(`public/registry-data/${entry.report}`, "utf8"));
       const result = validateReport(raw);
       expect(result.ok).toBe(true);
       if (!result.ok) throw new Error(result.error);
