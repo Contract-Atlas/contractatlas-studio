@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Add `/registry` with eight official-source contract addresses, downloadable manifests and actual unavailable checker attempts. Validate every bundled report before displaying it; no live hash or audit mapping is claimed.
+- Add `/registry` with eight official-source contract addresses, downloadable manifests and recorded mainnet checker observations (all incomplete: live reads worked, no audit mapping exists in the sources). Validate every bundled report before displaying it.
 - Document the source GitHub Action and the distinction from `sdkt verify`.
 
 ## 0.2.0

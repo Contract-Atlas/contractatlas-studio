@@ -12,8 +12,8 @@ const reports: Record<string, unknown> = { "blend-v2-1": blend, soroswap, reflec
 export function renderRegistry(): HTMLElement {
   return prose(
     "Public deployment registry",
-    "Eight contract addresses transcribed from official sources, with recorded checker attempts. These manifests have not been reviewed by protocol maintainers.",
-    p("The recorded attempts could not reach RPC from the recording environment. Unavailable means no live hash was established; it does not mean a protocol drifted. No audit-to-WASM mapping is asserted by these sources."),
+    "Eight contract addresses transcribed from official sources, with recorded checker observations from mainnet. These manifests have not been reviewed by protocol maintainers.",
+    p("The live reads worked on 22 October 2026. Every contract is incomplete because these sources provide no audit-to-WASM mapping, so no result can be a match. Incomplete is not drift and not a defect in the protocol."),
     ...index.entries.map((entry) => {
       const result = validateReport(reports[entry.slug]);
       if (!result.ok) return section(entry.slug, entry.slug, p("The bundled report failed validation. Do not treat it as an observation."));

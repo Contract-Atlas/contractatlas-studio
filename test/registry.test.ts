@@ -24,21 +24,21 @@ describe("recorded deployment registry", () => {
       if (!result.ok) throw new Error(result.error);
       expect(result.report.contracts.map((c) => c.id)).toEqual(manifest.contracts.map((c: { id: string }) => c.id));
       expect(result.report.manifest.network).toEqual(manifest.network);
-      expect(result.report.overall).toBe("unavailable");
-      expect(result.report.contracts.every((c) => c.live.kind === "unavailable")).toBe(true);
+      expect(result.report.overall).toBe("incomplete");
+      expect(result.report.contracts.every((c) => c.status === "incomplete")).toBe(true);
       contracts += manifest.contracts.length;
     }
     expect(contracts).toBe(8);
   });
 
-  it("makes no network requests and labels failed observations without claiming drift", () => {
+  it("makes no network requests and labels incomplete observations without claiming drift", () => {
     const fetch = vi.fn();
     vi.stubGlobal("fetch", fetch);
     try {
       const page = renderRegistry();
       expect(fetch).not.toHaveBeenCalled();
-      expect(page.textContent).toContain("could not reach RPC");
-      expect(page.textContent?.match(/Recorded result: UNAVAILABLE/g)).toHaveLength(3);
+      expect(page.textContent).toContain("Incomplete is not drift");
+      expect(page.textContent?.match(/Recorded result: INCOMPLETE/g)).toHaveLength(3);
       expect(page.querySelectorAll("a[download]")).toHaveLength(6);
       expect(page.querySelectorAll("[style]")).toHaveLength(0);
     } finally { vi.unstubAllGlobals(); }
